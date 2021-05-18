@@ -9,12 +9,12 @@ DROP TABLE IF EXISTS albums;
 -- sales — floating point value for number of records sold (in millions)
 -- genre — string for storing the record's genre(s)
 
-CREATE TABLE quotes (
+CREATE TABLE albums (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    artist STRING,
-    name  STRING,
-    release_date INT DATE UNSIGNED,
-    sales DOUBLE,
-    genre STRING,
-    PRIMARY KEY (id)
+    artist VARCHAR(100),
+    name  VARCHAR(100),
+    release_date SMALLINT UNSIGNED,
+    sales FLOAT(2),
+    genre VARCHAR(100),
+    PRIMARY KEY(id)
 );
