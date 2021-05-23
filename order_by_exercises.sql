@@ -1,8 +1,19 @@
 USE employees;
+
 # SQL Order By Exercise
 
-# Modify your first query to order by first name, then last_name
+# 2 Modify your first query to order by first name. The first result should be Irena Reutenauer and the last result should be Vidya Demeyer.
+# results for below first displays Irena Pelz and last Vidya Demeyer
+SELECT first_name, last_name FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name;
+
+# 3 Update the query to order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Boguraev.
+# results for below first displays Irena Acton, last name displayed is Vidya Zweizig
 SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name, last_name;
+
+# 4 Change the ORDER BY clause so that you order by last name before first name. Your first result should still be Irena Acton but now the last result should be Vidya Quittner.
+# result for below first displays Irena Acton, and last name displayed is Maya Zyda
+SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY last_name, first_name;
+
 
 # Find all employees whose last name starts with 'E' — 7,330 rows order by employee #
 SELECT * FROM employees WHERE last_name LIKE 'e%' ORDER BY emp_no;

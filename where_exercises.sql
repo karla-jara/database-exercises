@@ -30,10 +30,3 @@ SELECT * FROM employees WHERE last_name LIKE 'e%' AND last_name LIKE '%e';
 # 5 Find all employees with a 'q' in their last name but not 'qu' — 547 rows.
 SELECT * FROM employees WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
 
-
-
-
-
-# SELECT first_name, last_name FROM employees ORDER BY last_name DESC, first_name LIMIT 200;
-#
-# SELECT first_name, last_name FROM employees ORDER BY first_name DESC, last_name LIMIT 200;
