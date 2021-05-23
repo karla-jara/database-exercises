@@ -1,4 +1,5 @@
 USE employees;
+# SQL Order By Exercise
 
 # Modify your first query to order by first name, then last_name
 SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name, last_name;
