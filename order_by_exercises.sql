@@ -4,7 +4,7 @@ USE employees;
 
 # 2 Modify your first query to order by first name. The first result should be Irena Reutenauer and the last result should be Vidya Demeyer.
 # results for below first displays Irena Pelz and last Vidya Demeyer
-SELECT first_name, last_name FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name;
+SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya') ORDER BY first_name;
 
 # 3 Update the query to order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Boguraev.
 # results for below first displays Irena Acton, last name displayed is Vidya Zweizig
