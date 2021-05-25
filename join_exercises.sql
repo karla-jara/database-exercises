@@ -33,6 +33,20 @@ FROM employees AS e
 WHERE de.to_date = '9999-01-01' AND d.dept_name = 'Customer Service' GROUP BY title;
 # Not getting the same results but similar
 
+# Find the current salary of all current managers.
+SELECT d.dept_name AS 'Department Name',
+       CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager',
+       s.salary AS Salary
+FROM employees AS e
+    JOIN salaries AS s
+        ON s.emp_no = e.emp_no
+    JOIN dept_manager AS dm
+        ON dm.emp_no = s.emp_no
+    JOIN departments AS d
+        ON d.dept_no = dm.dept_no
+WHERE s.to_date = '9999-01-01' AND dm.to_date = '9999-01-01'
+ORDER BY `Department Name` ASC;
+
 
 
 
