@@ -22,7 +22,16 @@ WHERE dm.to_date = '9999-01-01' AND gender = 'F'
 ORDER BY d.dept_name ASC;
 
 # 4 Find the current titles of employees currently working in the Customer Service department.
-
+SELECT DISTINCT title, COUNT(title) AS 'Total'
+FROM employees AS e
+    JOIN dept_emp AS de
+        ON de.emp_no = e.emp_no
+    JOIN departments AS d
+        ON d.dept_no = de.dept_no
+    JOIN titles AS t
+         ON t.emp_no = e.emp_no
+WHERE de.to_date = '9999-01-01' AND d.dept_name = 'Customer Service' GROUP BY title;
+# Not getting the same results but similar
 
 
 
