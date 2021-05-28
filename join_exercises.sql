@@ -48,24 +48,17 @@ WHERE s.to_date = '9999-01-01' AND dm.to_date = '9999-01-01'
 ORDER BY `Department Name` ASC;
 
 
+# Bonus Find the names of all current employees, their department name, and their current manager's name .
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS Employee, d.dept_name AS Department, dept_manager AS Manager
+FROM employees AS e
+    JOIN dept_emp AS de
+        ON de.emp_no = e.emp_no
+    JOIN dept_manager AS dm
+        ON dm.dept_no = de.dept_no
+    Join departments AS d
+        ON d.dept_no = dm.dept_no
+WHERE (de.to_date = '9999-01-01' and dm.to_date = '9999-01-01') and de.dept_no = d.dept_no
+ORDER BY `Manager` ASC LIMIT 50;
 
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS Employee, d.dept_name AS Department, CONCAT(e.first_name, ' ', e.last_name) AS Manager FROM employees AS e     JOIN dept_emp AS de         ON de.emp_no = e.emp_no     JOIN dept_manager AS dm         ON dm.dept_no = de.dept_no     Join departments AS d         ON d.dept_no = dm.dept_no WHERE de.to_date = '9999-01-01' and dm.dept_no = d.dept_name ORDER BY `Department`;
 
-
-
-
-
-
-
-
-
-# example shown by Douglas
-SELECT first_name, last_name, birth_date
-FROM employees
-WHERE emp_no IN (
-    SELECT emp_no # Only current department managers
-    FROM dept_manager
-    WHERE to_date = '9999-01-01'
-) AND gender = 'F';
-
-# example shown by Nicholas
-SELECT first_name, last_name FROM employees WHERE emp_no IN (SELECT emp_no FROM dept_manager WHERE emp_no IN (SELECT emp_no FROM employees WHERE gender = 'F' AND to_date = '9999-01-01')) GROUP BY first_name, last_name;
